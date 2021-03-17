@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Sidebar } from "./components/sidebar/Sidebar";
@@ -11,10 +11,14 @@ import Settings from './components/pages/Settings'
 import styles from './index.css';
 
 const App = () => {
+  const [sidebar, setSidebar] = useState(false);
+
+  const showSidebar = () => setSidebar(!sidebar);
+
   return (
     <div className={styles.app}>
         <Router>
-          <Sidebar />
+          <Sidebar visible={sidebar} onChange={showSidebar}/>
           <Switch>
             <Route path='/' exact component={Overview}/>
             <Route path='/loans' component={Loans}/>

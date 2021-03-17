@@ -7,22 +7,19 @@ import * as FaIcons from 'react-icons/fa'
 import * as AiIcons from 'react-icons/ai'
 import { Stars } from '../stars/stars'
 
-export function Sidebar() {
-    const [visible, setVisible] = useState(false);
-    const [active, setActive] = useState('Overview');
 
-    const showSidebar = () => setVisible(!visible);
+export function Sidebar({visible, onChange}) {
+    const [active, setActive] = useState('Overview');
 
     return (
         <IconContext.Provider value={{ color: '#fff' }}>
             <div className={styles.hamburger}>
                 <Link to='#'>
-                    <FaIcons.FaBars onClick={showSidebar}/>
+                    <FaIcons.FaBars onClick={onChange}/>
                 </Link>
             </div>
             
             <nav className={visible ? [styles.sidebar, styles.visible].join(' ') : styles.sidebar}>
-                <Stars/>
                 <ul className={styles.sidebarList}>
                     {SidebarData.map((item, index) => {
                         return (
@@ -36,7 +33,7 @@ export function Sidebar() {
                                     <div className={styles.text}>{item.title}</div>
                                 </Link>
                             </li>
-                        );
+                        )
                     })}
                 </ul>
             </nav>
