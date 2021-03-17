@@ -16,7 +16,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.js$|jsx/,
                 loader: 'babel-loader',
                 exclude: /node_modules/
             },
@@ -54,7 +54,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: __dirname + '/src/index.html',
+            template: __dirname + '/dist/index.html',
             filename: 'index.html',
             inject: 'body'
         })

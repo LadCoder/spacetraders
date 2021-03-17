@@ -1,0 +1,82 @@
+.sidebar {
+  height: 100%;
+  width: 200px;
+  background-color: #2f4050;
+  left: -100%;
+  position: fixed;
+  transition: 850ms;
+}
+
+.sidebarList {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+}
+
+.hamburger {
+  width: 100%;
+  height: 60px;
+  background: #2f4050;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger a{
+  font-size: 2rem;
+  flex: 10%;
+  display: grid;
+  place-items: start;
+  padding-left: 20px;
+}
+
+.row {
+  border-left: 3px solid #2f4050;
+}
+
+.row:hover {
+  cursor: pointer;
+  background: #293846;
+}
+
+.row a {
+  width: 100%;
+  height: 50px;
+  list-style-type: none;
+  text-decoration: none;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  font-family: 'lato';
+}
+
+.active {
+  background: #293846;
+  border-left: 3px solid #15d42f;
+}
+
+.visible {
+  left: 0;
+  transition: 350ms;
+}
+
+.icon {
+  flex: 10%;
+  display: grid;
+  place-items: start;
+  padding-left: 20px;
+}
+
+.text {
+  flex: 90%;
+  color: #fff;
+  display: grid;
+  place-items: start;
+  padding-left: 10px;
+
+}
+

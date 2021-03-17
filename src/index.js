@@ -1,13 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Sidebar } from "./components/sidebar/Sidebar";
+import _ from 'lodash';
+import Overview from './components/pages/Overview'
+import Loans from './components/pages/Loans'
+import Fleets from './components/pages/Fleets'
+import Settings from './components/pages/Settings'
 
-import './index.css';
+import styles from './index.css';
 
 const App = () => {
   return (
-    <div>
-        <h1>Spacetraders UI</h1>
-        <p>A frontend UI for the Spacetraders API game.</p>
+    <div className={styles.app}>
+        <Router>
+          <Sidebar />
+          <Switch>
+            <Route path='/' exact component={Overview}/>
+            <Route path='/loans' component={Loans}/>
+            <Route path='/fleets' component={Fleets}/>
+            <Route path='/settings' component={Settings}/>
+          </Switch>
+        </Router>
     </div>
   );
 };
